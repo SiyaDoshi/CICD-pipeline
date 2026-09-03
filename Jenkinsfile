@@ -30,5 +30,11 @@ pipeline {
                 sh 'docker run -d --name cicd-pipeline-app -p 3000:3000 cicd-pipeline'
             }
         }
+
+        stage('Verify deployment') {
+            steps {
+                sh 'curl --fail --silent http://localhost:3000/health'
+            }
+        }
     }
 }
