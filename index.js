@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get("/", (request, response) => {
-  response.send("CICD pipeline is running");
+  response.send("CICD pipeline is running successfully");
 });
 
 app.get("/health", (request, response) => {
