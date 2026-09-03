@@ -17,5 +17,11 @@ pipeline {
                 sh 'npm test -- --runInBand'
             }
         }
+
+        stage('Build Docker image') {
+            steps {
+                sh 'docker build -t cicd-pipeline .'
+            }
+        }
     }
 }
