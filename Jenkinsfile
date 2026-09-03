@@ -23,5 +23,12 @@ pipeline {
                 sh 'docker build -t cicd-pipeline .'
             }
         }
+
+        stage('Deploy container') {
+            steps {
+                sh 'docker rm -f cicd-pipeline-app || true'
+                sh 'docker run -d --name cicd-pipeline-app -p 3000:3000 cicd-pipeline'
+            }
+        }
     }
 }
