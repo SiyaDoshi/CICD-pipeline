@@ -7,6 +7,10 @@ app.get("/", (request, response) => {
   response.send("CICD pipeline is running");
 });
 
+app.get("/health", (request, response) => {
+  response.json({ status: "ok" });
+});
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
