@@ -11,6 +11,10 @@ app.get("/health", (request, response) => {
   response.json({ status: "ok" });
 });
 
+app.get("/version", (request, response) => {
+  response.json({ version: "1.0.0" });
+});
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

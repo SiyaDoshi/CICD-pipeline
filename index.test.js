@@ -14,3 +14,10 @@ test("GET /health returns an ok status", async () => {
   expect(response.statusCode).toBe(200);
   expect(response.body).toEqual({ status: "ok" });
 });
+
+test("GET /version returns the application version", async () => {
+  const response = await request(app).get("/version");
+
+  expect(response.statusCode).toBe(200);
+  expect(response.body).toEqual({ version: "1.0.0" });
+});
